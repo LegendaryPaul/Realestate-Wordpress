@@ -128,7 +128,7 @@
             <?php echo get_field('service_parag'); ?>
             </p>
 
-            <a href="about.html" class="btn bgcolor--yellow"><?php echo get_field('service_button'); ?></a>
+            <a href="<?php echo get_field('service_url'); ?>" class="btn bgcolor--yellow"><?php echo get_field('service_button'); ?></a>
           </div>
         </div>
       </div>
@@ -217,6 +217,7 @@
             else :
               echo "There is no content!";
             endif;
+            wp_reset_postdata();
           ?>
         </div>
       </div>

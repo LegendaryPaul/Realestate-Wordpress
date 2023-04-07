@@ -25,7 +25,7 @@
       <div class="container">
         <div class="header__wrapper d--flex align--end justify--between">
           <div class="header__branding">
-            <a href="index.html"> <img src="<?php echo get_template_directory_uri(); ?>./img/logo.jpg" alt="" /></a>
+            <a href="<?php echo site_url('/'); ?>"> <img src="<?php echo get_template_directory_uri(); ?>./img/logo.jpg" alt="" /></a>
           </div>
 
           <nav class="header__nav">
