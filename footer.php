@@ -7,7 +7,7 @@
       <div class="container">
         <div class="footer__wrapper">
           <div class="footer__left">
-            <img src="./img/logo.jpg" alt="" />
+            <img src="<?php echo get_template_directory_uri(); ?>./img/logo.jpg" alt="" />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
               quasi delectus excepturi error ratione.

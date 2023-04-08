@@ -39,24 +39,25 @@ function real_custom_post(){
     );
     register_post_type('latestPost', $latestPost_args);
 
-    // FAQ
-    $faq_label = array(
-        'name'          => __('Faq Post', 'textdomain'),
-        'singular_name' => __('Faq Post', 'textdomain'),
-        'add_new'       => __('Add Faq Post', 'textdomain'),
-        'add_new_item'  => __('Add New Faq Post', 'textdomain'),
-        'edit item'     => __('Edit Faq Post', 'textdomain'),
-        'all_items'     => __('Faq Post', 'textdomain')
+
+    // ABOUT
+    $about_label = array(
+        'name'          => __('About Us Post', 'textdomain'),
+        'singular_name' => __('About Post', 'textdomain'),
+        'add_new'       => __('Add About Post', 'textdomain'),
+        'add_new_item'  => __('Add New About Post', 'textdomain'),
+        'edit item'     => __('Edit About Post', 'textdomain'),
+        'all_items'     => __('About Post', 'textdomain')
     );
-    $faqPost_args = array(
-        'labels'            => $faq_label,
+    $aboutPost_args = array(
+        'labels'            => $about_label,
         'public'            => true,
         'capability_type'   => 'post',
         'show_ui'           => true,
         'taxonomies'        => array('post_tag','category'),
         'supports'          => array('title', 'editor', 'thumbnail', 'excerpt')
     );
-    register_post_type('faqPost', $faqPost_args);
+    register_post_type('aboutPost', $aboutPost_args);
     
 }
 

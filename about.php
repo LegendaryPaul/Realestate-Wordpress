@@ -22,16 +22,13 @@
     <section class="aBanner">
       <div class="container">
         <div class="aBanner__content">
-          <h2>About</h2>
+          <h2><?php echo get_field('content_title'); ?></h2>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-            laboriosam? Velit, voluptate repellat dicta consequuntur pariatur in
-            rem officiis optio repudiandae ipsa inventore alias facere ullam
-            ipsum est. Qui, minima.
+            <?php echo get_field('content_parag'); ?>
           </p>
 
-          <a href="#" class="btn bgcolor--light">Let's Connect</a>
+          <a href="#" class="btn bgcolor--light"><?php echo get_field('content_button'); ?></a>
         </div>
       </div>
     </section>
@@ -41,66 +38,44 @@
     <section class="about py--10">
       <div class="container">
         <div class="about__wrapper">
+          <?php
+            $args = array(
+              'post_type' => 'aboutPost'
+            );
+            $newQuery = new WP_Query($args);
+          ?>
+          <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post(); ?>
           <div class="about__description">
-            <h3>Why Choose Us?</h3>
+            <h3><?php the_title();?></h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              magni ea qui soluta molestias debitis molestiae cupiditate, iste
-              quia, quod iusto illum exercitationem ut, neque possimus accusamus
-              accusantium quasi adipisci dolores.
-            </p>
-
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              sapiente aut ipsam excepturi veniam quos dolor labore tenetur
-              reiciendis eveniet.
+              <?php the_content();?>
             </p>
           </div>
-
+            <?php
+              endwhile;
+            else :
+              echo "There is no content!";
+              
+            endif;
+            wp_reset_postdata();
+            ?>
           <div class="about__details">
+          <?php if(have_rows('about_repeater')) : while(the_repeater_field('about_repeater')) :?>
             <div class="about__details__block">
-              <i class="fa-solid fa-house-chimney-user"></i>
-              <h3>Property Insurance</h3>
+            <?php echo get_sub_field('about_icon');?>
+              <h3><?php echo get_sub_field('about_title');?></h3>
 
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                accusantium ut, illum animi, cumque veritatis, sit cum est
-                delectus suscipit totam.
+              <?php echo get_sub_field('about_parag');?>
               </p>
             </div>
-
-            <div class="about__details__block">
-              <i class="fa-solid fa-money-bill-wave"></i>
-              <h3>Property Insurance</h3>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                accusantium ut, illum animi, cumque veritatis, sit cum est
-                delectus suscipit totam.
-              </p>
-            </div>
-
-            <div class="about__details__block">
-              <i class="fa-solid fa-coins"></i>
-              <h3>Property Insurance</h3>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                accusantium ut, illum animi, cumque veritatis, sit cum est
-                delectus suscipit totam.
-              </p>
-            </div>
-
-            <div class="about__details__block">
-              <i class="fa-solid fa-wrench"></i>
-              <h3>Property Insurance</h3>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                accusantium ut, illum animi, cumque veritatis, sit cum est
-                delectus suscipit totam.
-              </p>
-            </div>
+            <?php
+            endwhile;
+            else :
+              echo "There is no content!";
+            endif;
+            wp_reset_postdata();
+          ?>
           </div>
         </div>
       </div>
@@ -111,102 +86,55 @@
         <div class="connect__wrapper">
           <div class="connect__faqs">
             <h3>Frequently Asked Questions</h3>
+          
+            <?php if(have_rows('faq_repeater')) : while(the_repeater_field('faq_repeater')) : ?>
 
-            <div class="questions">
-              <button>
-                <span>Do you offer load services?</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
-              </button>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat architecto dignissimos alias illum sequi laudantium eos
-                id exercitationem tempora, quia saepe neque est quis quo aut
-                labore obcaecati accusamus consequuntur.
-              </p>
-            </div>
-
-            <div class="questions">
-              <button>
-                <span>Do you offer load services?</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
-              </button>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat architecto dignissimos alias illum sequi laudantium eos
-                id exercitationem tempora, quia saepe neque est quis quo aut
-                labore obcaecati accusamus consequuntur.
-              </p>
-            </div>
-
-            <div class="questions">
-              <button>
-                <span>Do you offer load services?</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
-              </button>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat architecto dignissimos alias illum sequi laudantium eos
-                id exercitationem tempora, quia saepe neque est quis quo aut
-                labore obcaecati accusamus consequuntur.
-              </p>
-            </div>
-
-            <div class="questions">
-              <button>
-                <span>Do you offer load services?</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
-              </button>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat architecto dignissimos alias illum sequi laudantium eos
-                id exercitationem tempora, quia saepe neque est quis quo aut
-                labore obcaecati accusamus consequuntur.
-              </p>
-            </div>
-
-            <div class="questions">
-              <button>
-                <span>Do you offer load services?</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
-              </button>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat architecto dignissimos alias illum sequi laudantium eos
-                id exercitationem tempora, quia saepe neque est quis quo aut
-                labore obcaecati accusamus consequuntur.
-              </p>
-            </div>
-
-            <div class="questions">
-              <button>
-                <span>Do you offer load services?</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
-              </button>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat architecto dignissimos alias illum sequi laudantium eos
-                id exercitationem tempora, quia saepe neque est quis quo aut
-                labore obcaecati accusamus consequuntur.
-              </p>
-            </div>
+              <div class="questions">
+                <button>
+                  <span><?php echo get_sub_field('faq_question'); ?></span>
+                  <span><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <p>
+                <?php echo get_sub_field('faq_answer'); ?>
+                </p>
+              </div>
+                <?php
+                  endwhile;
+                  else :
+                    echo "There is no content!";
+                  endif;
+                  wp_reset_postdata();
+                ?>
           </div>
 
           <div class="connect__right">
+              
             <div class="connect__right__info">
               <h3>Let's Connect</h3>
+              <!-- LOOP FOR CONTACT TITLE REPEATER -->
+              <?php if(have_rows('contact_repeater')) : while(the_repeater_field('contact_repeater')) :?>
+              <h4><?php echo get_sub_field('contact_title'); ?></h4>
 
-              <h4>Call Us</h4>
-              <p><i class="fa-solid fa-phone-flip"></i>(123) 456 7890</p>
-              <p><i class="fa-solid fa-phone-flip"></i>(123) 456 7890</p>
+              <!-- LOOP FOR CONTACT NUMBER REPEATER -->
+              <?php if(have_rows('number_repeater')) : while(the_repeater_field('number_repeater')) :?>
+              <p><?php echo get_sub_field('contact_number'); ?></p>
+              <?php 
+                  endwhile;
+                  else :
+                    echo "There is no content!";
+                  endif;
+                  wp_reset_postdata();
+                ?>
+                <!-- END LOOP FOR CONTACT NUMBER REPEATER -->
 
-              <h4>Visit Us</h4>
-              <p><i class="fa-solid fa-location-dot"></i>(123) 456 7890</p>
-
-              <h4>Live Chat</h4>
-              <p>
-                <i class="fa-brands fa-facebook-messenger"></i>(123) 456 7890
-              </p>
-            </div>
+                <?php 
+                  endwhile;
+                  else :
+                    echo "There is no content!";
+                  endif;
+                  wp_reset_postdata();
+                ?>
+                <!-- END LOOP FOR CONTACT TITLE REPEATER -->
           </div>
         </div>
       </div>
