@@ -58,6 +58,25 @@ function real_custom_post(){
         'supports'          => array('title', 'editor', 'thumbnail', 'excerpt')
     );
     register_post_type('aboutPost', $aboutPost_args);
+
+    // PROPERTIES
+    $properties_label = array(
+        'name'          => __('Properties Post', 'textdomain'),
+        'singular_name' => __('Properties Post', 'textdomain'),
+        'add_new'       => __('Add Properties Post', 'textdomain'),
+        'add_new_item'  => __('Add New Properties Post', 'textdomain'),
+        'edit item'     => __('Edit Properties Post', 'textdomain'),
+        'all_items'     => __('Properties Post', 'textdomain')
+    );
+    $propertiesPost_args = array(
+        'labels'            => $properties_label,
+        'public'            => true,
+        'capability_type'   => 'post',
+        'show_ui'           => true,
+        'taxonomies'        => array('post_tag','category'),
+        'supports'          => array('title', 'editor', 'thumbnail', 'excerpt')
+    );
+    register_post_type('propertiesPost', $propertiesPost_args);
     
 }
 
