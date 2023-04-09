@@ -38,7 +38,7 @@
             <p>
                 <?php the_content();?>
             </p>
-            <a href="<?php the_permalink(); ?>">Continue</a>
+            <a style="color: #000;" href="<?php the_permalink(); ?>">Continue</a>
           </div>
         </div>
       </div>
